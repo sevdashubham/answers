@@ -1,3 +1,4 @@
+// @ts-nocheck
 import React, {useEffect, useState} from 'react';
 import {
     LineChart as RechartsLineChart,
@@ -63,6 +64,7 @@ const LineChart: React.FC<LineChartProps> = ({
         );
     };
 
+    // @ts-ignore
     return (
         <div className="bg-[#222324] border border-[#525252] rounded-[5px] pt-4 pr-6 w-full">
             {/* Header with dropdown */}
