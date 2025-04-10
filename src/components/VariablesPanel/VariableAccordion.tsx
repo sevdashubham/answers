@@ -6,15 +6,15 @@ interface VariableAccordionProps {
   defaultOpen?: boolean;
 }
 
-const VariableAccordion: React.FC<VariableAccordionProps> = ({ 
-  title, 
+const VariableAccordion: React.FC<VariableAccordionProps> = ({
+  title,
   children,
   defaultOpen = false
 }) => {
   const [isOpen, setIsOpen] = useState(defaultOpen);
   const [height, setHeight] = useState<number | undefined>(defaultOpen ? undefined : 0);
   const contentRef = useRef<HTMLDivElement>(null);
-  
+
   useEffect(() => {
     if (isOpen) {
       const contentHeight = contentRef.current?.scrollHeight;
@@ -23,9 +23,9 @@ const VariableAccordion: React.FC<VariableAccordionProps> = ({
       setHeight(0);
     }
   }, [isOpen]);
-  
+
   return (
-    <div className="mb-2 bg-[#222324] rounded-[4px] border border-[#525252] overflow-hidden">
+    <div className="mb-4 bg-[#222324] rounded-[4px] border border-[#525252] overflow-hidden">
       <button
         className="w-full flex justify-between items-center px-4 py-3 text-left text-white focus:outline-none"
         onClick={() => setIsOpen(!isOpen)}
@@ -43,7 +43,7 @@ const VariableAccordion: React.FC<VariableAccordionProps> = ({
           </svg>
         </span>
       </button>
-      <div 
+      <div
         className="overflow-hidden transition-all duration-300 ease-in-out"
         style={{ height: height === undefined ? 'auto' : `${height}px` }}
       >

@@ -19,7 +19,7 @@ const Button: React.FC<ButtonProps> = ({ label, isActive, onClick, icon, iconPos
             } ${className}`}
             onClick={onClick}
         >
-            {icon && iconPosition === 'start' && <span className='mr-4'>{icon}</span>}
+            {icon && iconPosition === 'start' && <span className='mr-2'>{icon}</span>}
             {label}
             {icon && iconPosition === 'end' && <span className='ml-4'>{icon}</span>}
         </button>

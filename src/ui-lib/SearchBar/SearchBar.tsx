@@ -1,8 +1,18 @@
 import React from "react";
 
-const SearchBar: React.FC = () => {
+interface SearchProps {
+    value?: string;
+    handleChange?: (value: string) => void;
+    className?: string
+}
+
+const SearchBar: React.FC<SearchProps> = ({
+                                              value = '',
+                                              handleChange,
+                                              className
+                                                  }) => {
     return (
-        <div className="flex items-center border border-neutral-700 rounded py-2 px-3 w-full lg:max-w-[12rem]">
+        <div className={`flex items-center border border-neutral-700 rounded py-2 px-3 w-full bg-[#161618] lg:max-w-[12rem] ${className}`}>
             <svg
                 xmlns="http://www.w3.org/2000/svg"
                 className="h-5 w-5 text-white opacity-100 mr-2 flex-shrink-0"
@@ -19,6 +29,8 @@ const SearchBar: React.FC = () => {
             </svg>
             <input
                 type="text"
+                value={value}
+                onChange={(e) => handleChange?.(e.target.value)}
                 placeholder="Search"
                 className="bg-transparent text-white placeholder-white font-medium text-sm w-full outline-none"
             />

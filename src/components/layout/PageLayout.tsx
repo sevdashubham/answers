@@ -99,7 +99,7 @@ const PageLayout: React.FC<PageLayoutProps> = ({ children }) => {
             </div>
 
             {/* Variables panel */}
-            <div className="fixed right-0 top-0 z-5 h-full" style={{ marginTop: `${topNavHeight}px` }}>
+            <div className="fixed right-0 top-0 z-40 h-full">
                 <VariablesPanel />
             </div>
         </div>

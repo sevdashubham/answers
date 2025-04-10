@@ -20,15 +20,15 @@ const VariableItem: React.FC<VariableItemProps> = ({
   // State for tracking hover time for description popup
   const [isHovering, setIsHovering] = useState(false);
   const hoverTimer = useRef<NodeJS.Timeout | null>(null);
-  
+
   // Start/clear timer for hover state
   const handleMouseEnter = () => {
     hoverTimer.current = setTimeout(() => {
       setIsHovering(true);
       onClick(); // Show details when hover timer completes
-    }, 1500); // 1.5 second delay before showing description
+    }, 300);
   };
-  
+
   const handleMouseLeave = () => {
     if (hoverTimer.current) {
       clearTimeout(hoverTimer.current);
@@ -36,7 +36,7 @@ const VariableItem: React.FC<VariableItemProps> = ({
     }
     setIsHovering(false);
   };
-  
+
   // Clean up timer on unmount
   useEffect(() => {
     return () => {
@@ -74,8 +74,8 @@ const VariableItem: React.FC<VariableItemProps> = ({
   };
 
   return (
-    <div 
-      className={classes} 
+    <div
+      className={classes}
       onClick={handleClick} // Entire component toggles selection
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
@@ -87,7 +87,7 @@ const VariableItem: React.FC<VariableItemProps> = ({
         }
       }}
     >
-      <span className="mr-1">{name}</span>
+      <span className={`mr-1 text-[15px] ${selected? 'text-[#C8E972FD]' : 'text-[#D5D5D5]'}`}>{name}</span>
       <div className="flex ml-1">
         {onRemove && (
           <button
