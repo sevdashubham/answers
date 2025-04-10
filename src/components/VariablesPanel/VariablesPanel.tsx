@@ -179,6 +179,8 @@ const VariablesPanel: React.FC<VariablesPanelProps> = ({
                                     </div>
                                 </VariableCategory>
                             ))}
+
+                            {filteredVars.categories.length === 0 && <h4>{'No categories found'}</h4>}
                         </div>
 
                         {/* Variable details section */}
