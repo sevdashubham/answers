@@ -76,5 +76,6 @@ export const signInWithGoogle = () => {
 
 export const signOut = () => {
     const supabase = getSupabase();
+    console.log('supabase', supabase.auth.getSession())
     return supabase.auth.signOut();
 };

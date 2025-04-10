@@ -7,14 +7,12 @@ import {
   ChartSection,
   KeyIndicators
 } from '@/components/dashboard';
-import AuthProvider from "@/providers/AuthProvider";
 
 /**
  * Main dashboard page component
  */
 const Dashboard: React.FC = () => {
   return (
-    <AuthProvider>
       <PageLayout>
         <PageHeader title="Charging Station" />
         <ScenarioResults />
@@ -31,7 +29,6 @@ const Dashboard: React.FC = () => {
           </div>
         </div>
       </PageLayout>
-    </AuthProvider>
   );
 };
 
