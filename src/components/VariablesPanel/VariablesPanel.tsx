@@ -85,55 +85,60 @@ const VariablesPanel: React.FC<VariablesPanelProps> = ({
                 </div>
 
                 {/* Search and action buttons */}
-                <div className="flex space-x-2 mb-6">
-                    <SearchBar
-                        value={searchTerm}
-                        handleChange={setSearchTerm}
-                        className="lg:max-w-full"
-                    />
-                    <Button label={'Autofill'} isActive onClick={onAutofill} iconPosition={"start"}
-                            className="pl-5 pr-7"
-                            icon={<svg
-                                width="18"
-                                height="18"
-                                viewBox="0 0 18 18"
-                                fill="none"
-                                xmlns="http://www.w3.org/2000/svg"
+                <div className="mb-6">
+                    <div className="grid grid-cols-2 lg:grid-cols-4 gap-2 mb-6">
+                        <div className="col-span-4 lg:col-span-2 flex items-center">
+                            <SearchBar
+                                value={searchTerm}
+                                handleChange={setSearchTerm}
+                                className="lg:max-w-full"
+                            />
+                        </div>
+                        <div className="col-span-1 flex items-center">
+                            <Button label={'Autofill'} isActive onClick={onAutofill} iconPosition={"start"}
+                                    className="pl-5 pr-7 w-full"
+                                    icon={<svg
+                                        width="18"
+                                        height="18"
+                                        viewBox="0 0 18 18"
+                                        fill="none"
+                                        xmlns="http://www.w3.org/2000/svg"
+                                    >
+                                        <path
+                                            d="M14.7273 0L13.6964 2.25L11.4545 3.27273L13.6964 4.30364L14.7273 6.54545L15.75 4.30364L18 3.27273L15.75 2.25M6.54545 2.45455L4.5 6.95455L0 9L4.5 11.0455L6.54545 15.5455L8.59091 11.0455L13.0909 9L8.59091 6.95455M14.7273 11.4545L13.6964 13.6964L11.4545 14.7273L13.6964 15.75L14.7273 18L15.75 15.75L18 14.7273L15.75 13.6964"
+                                            fill="#B9B9B9"
+                                        />
+                                    </svg>}/>
+                        </div>
+                        <div className="col-span-1 flex">
+                            <button
+                                className="relative px-[20px] py-2 rounded-[8px] flex items-center text-[#C9FF3B] w-full"
+                                onClick={handleRerun}
+                                aria-label={"rerun"}
+                                style={{
+                                    border: "2px solid #577113",
+                                    background: "linear-gradient(to bottom, #C8E972, #23291E)",
+                                    outline: "1px solid #23291E",
+                                    outlineOffset: "-1px",
+                                }}
                             >
-                                <path
-                                    d="M14.7273 0L13.6964 2.25L11.4545 3.27273L13.6964 4.30364L14.7273 6.54545L15.75 4.30364L18 3.27273L15.75 2.25M6.54545 2.45455L4.5 6.95455L0 9L4.5 11.0455L6.54545 15.5455L8.59091 11.0455L13.0909 9L8.59091 6.95455M14.7273 11.4545L13.6964 13.6964L11.4545 14.7273L13.6964 15.75L14.7273 18L15.75 15.75L18 14.7273L15.75 13.6964"
-                                    fill="#B9B9B9"
+                                {/* Layer 2: Gradient background */}
+                                <div
+                                    style={{
+                                        position: "absolute",
+                                        top: "1px",
+                                        bottom: "1px",
+                                        left: "1px",
+                                        right: "1px",
+                                        borderRadius: "6px",
+                                        background: "#23291E",
+                                        outline: "1px solid #23291E",
+                                        outlineOffset: "-1px",
+                                        zIndex: 0,
+                                    }}
                                 />
-                            </svg>}/>
-                    {/* Layer 1 */}
-                    <button
-                        className="relative px-[20px] py-2 rounded-[8px] flex items-center text-[#C9FF3B]"
-                        onClick={handleRerun}
-                        aria-label={"rerun"}
-                        style={{
-                            border: "2px solid #577113",
-                            background: "linear-gradient(to bottom, #C8E972, #23291E)",
-                            outline: "1px solid #23291E",
-                            outlineOffset: "-1px",
-                        }}
-                    >
-                        {/* Layer 2: Gradient background */}
-                        <div
-                            style={{
-                                position: "absolute",
-                                top: "1px",
-                                bottom: "1px",
-                                left: "1px",
-                                right: "1px",
-                                borderRadius: "6px",
-                                background: "#23291E",
-                                outline: "1px solid #23291E",
-                                outlineOffset: "-1px",
-                                zIndex: 0,
-                            }}
-                        />
 
-                        <span className="mr-2 relative z-10">
+                                <span className="mr-2 relative z-10">
                 <svg
                     width="19"
                     height="16"
@@ -147,8 +152,10 @@ const VariablesPanel: React.FC<VariablesPanelProps> = ({
                   />
                 </svg>
               </span>
-                        <span className="relative z-10">Rerun</span>
-                    </button>
+                                <span className="relative z-10">Rerun</span>
+                            </button>
+                        </div>
+                    </div>
                 </div>
 
                 {/* Main content - scrollable area */}

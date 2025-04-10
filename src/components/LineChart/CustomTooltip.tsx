@@ -3,9 +3,9 @@ import { TooltipProps } from 'recharts';
 import { ValueType, NameType } from 'recharts/types/component/DefaultTooltipContent';
 import { DataPoint } from '@/types';
 
-const CustomTooltip: React.FC<TooltipProps<ValueType, NameType>> = ({ 
-  active, 
-  payload 
+const CustomTooltip: React.FC<TooltipProps<ValueType, NameType>> = ({
+  active,
+  payload
 }) => {
   if (!active || !payload || !payload.length) {
     return null;
@@ -14,9 +14,9 @@ const CustomTooltip: React.FC<TooltipProps<ValueType, NameType>> = ({
   const data = payload[0]!.payload as DataPoint;
   const value = data.value;
   const isPeak = value === Math.max(...payload.map(p => (p.payload as DataPoint).value));
-  
+
   return (
-    <div className="bg-gray-900 text-white p-2 rounded shadow-lg text-center">
+    <div className="bg-[#0E0D0D] border border-[#525252] rounded text-white p-4 shadow-lg text-center">
       <div className="text-lg font-bold">${(value / 1000).toFixed(2)}K</div>
       <div className="text-sm flex items-center justify-center">
         <span className="text-green-500 mr-1">▲</span>

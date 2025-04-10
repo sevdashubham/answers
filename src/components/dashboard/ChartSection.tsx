@@ -13,7 +13,7 @@ const ChartSection: React.FC = () => {
 
   return (
     <div className="w-full">
-      <div className="flex mb-4">
+      <div className="flex mb-6">
         <h2 className="text-2xl font-semibold">Graphs</h2>
       </div>
       <LineChart
