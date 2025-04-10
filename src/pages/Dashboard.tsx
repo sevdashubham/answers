@@ -7,14 +7,14 @@ import {
   ChartSection,
   KeyIndicators
 } from '@/components/dashboard';
-import { Provider } from 'jotai';
+import AuthProvider from "@/providers/AuthProvider";
 
 /**
  * Main dashboard page component
  */
 const Dashboard: React.FC = () => {
   return (
-    <Provider>
+    <AuthProvider>
       <PageLayout>
         <PageHeader title="Charging Station" />
         <ScenarioResults />
@@ -31,7 +31,7 @@ const Dashboard: React.FC = () => {
           </div>
         </div>
       </PageLayout>
-    </Provider>
+    </AuthProvider>
   );
 };
 

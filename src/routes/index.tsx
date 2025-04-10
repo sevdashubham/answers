@@ -1,15 +1,30 @@
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import Dashboard from '@/pages/Dashboard';
-import Home from '@/pages/Home';
+import Login from '@/pages/Login';
+import AuthCallback from '@/pages/AuthCallback';
+import ProtectedRoute from './ProtectedRoute';
+import { ErrorBoundaryRouteAdapter } from '@/components/ErrorBoundary';
 
 const router = createBrowserRouter([
   {
     path: '/',
-    element: <Home />,
+    element: <Login />,
+    errorElement: <ErrorBoundaryRouteAdapter />,
   },
   {
-    path: '/dashboard',
-    element: <Dashboard />,
+    path: '/auth/callback',
+    element: <AuthCallback />,
+    errorElement: <ErrorBoundaryRouteAdapter />,
+  },
+  {
+    element: <ProtectedRoute />,
+    errorElement: <ErrorBoundaryRouteAdapter />,
+    children: [
+      {
+        path: '/dashboard',
+        element: <Dashboard />,
+      },
+    ],
   },
 ]);
 
