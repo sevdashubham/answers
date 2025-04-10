@@ -3,12 +3,16 @@ import KeyIndicatorCard from './KeyIndicatorCard';
 import {useAtomValue} from 'jotai';
 import {keyIndicatorsAtom} from '@/atoms/dashboardAtoms';
 import Button from '@/ui-lib/Button/Button';
+import {useSetAtom} from "jotai/index";
+import {isVariableEditorOpenAtom} from "@/atoms/dashboardAtoms";
 
 /**
  * Component to display all key performance indicators
  */
 const KeyIndicators: React.FC = () => {
     const keyIndicators = useAtomValue(keyIndicatorsAtom);
+    const setIsVariableEditorOpen = useSetAtom(isVariableEditorOpenAtom);
+
 
     return (
         <div className="w-full">
@@ -26,6 +30,7 @@ const KeyIndicators: React.FC = () => {
                     }
                     iconPosition={'end'}
                     className={'px-2 bg-[#1a1a1a]'}
+                    onClick={() => setIsVariableEditorOpen(true)}
                 />
             </div>
 
